@@ -1248,6 +1248,75 @@
     background: linear-gradient(to bottom, rgba(79,70,229,0), rgba(124,58,237,1), rgba(79,70,229,0)) !important;
   }
 
+  /* === Luxe Framing Utilities === */
+  .page-grid{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+      linear-gradient(transparent 95%, rgba(255,255,255,.06) 95%),
+      linear-gradient(90deg, transparent 95%, rgba(255,255,255,.06) 95%);
+    background-size: 100% 64px, 64px 100%;
+    mask-image: radial-gradient(circle at 50% 10%, rgba(0,0,0,.6), transparent 65%), radial-gradient(circle at 50% 90%, rgba(0,0,0,.5), transparent 65%);
+    opacity:.08;
+    z-index:1;
+  }
+
+  .section-shell{
+    position:relative;
+    isolation:isolate;
+  }
+  .section-shell::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(800px 800px at 50% 0%, rgba(124,58,237,.08), transparent 70%);
+    opacity:.9;
+    z-index:0;
+  }
+  .section-shell::after{
+    content:"";
+    position:absolute;
+    inset:12px 0 0;
+    margin:0 auto;
+    width: min(92%, 1200px);
+    height:100%;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(255,255,255,.01) 100%);
+    box-shadow:0 30px 90px rgba(0,0,0,.35);
+    filter:drop-shadow(0 10px 40px rgba(79,70,229,.15));
+    z-index:0;
+  }
+
+  .section-inner{
+    position:relative;
+    z-index:1;
+    padding:24px 18px 0;
+  }
+
+  @media (min-width: 640px){
+    .section-inner{ padding:32px 24px 0; }
+  }
+  @media (min-width: 1024px){
+    .section-inner{ padding:40px 32px 0; }
+  }
+
+  .hero-surface{
+    background: radial-gradient(140% 140% at 30% 20%, rgba(124,58,237,.22), transparent 50%), rgba(6,7,12,.70);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow: 0 30px 110px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.10);
+    border-radius:32px;
+    padding:32px 24px;
+    backdrop-filter: blur(18px);
+  }
+  @media (min-width: 640px){
+    .hero-surface{ padding:40px 48px; }
+  }
+  @media (min-width: 1024px){
+    .hero-surface{ padding:56px 64px; }
+  }
+
   a:focus-visible,
   button:focus-visible{
     outline: none;
@@ -1258,7 +1327,8 @@
 
 </head>
 <body>
-    
+    <div class="page-grid" aria-hidden="true"></div>
+
     <!-- Header -->
     <header class="glass-strong fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1302,14 +1372,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden">
+    <section class="relative overflow-hidden section-shell">
         <!-- Gradient Orbs -->
         <div class="gradient-orb w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-aura-purple top-10 sm:top-20 -left-20 sm:-left-40" style="animation-delay: 0s;"></div>
         <div class="gradient-orb w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] bg-aura-purple-light top-40 sm:top-60 -right-20 sm:-right-40" style="animation-delay: 2s;"></div>
         <div class="gradient-orb w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] bg-aura-purple-bright bottom-20 sm:bottom-40 left-1/2 -translate-x-1/2" style="animation-delay: 4s;"></div>
         
         <div class="relative z-10 hero-container">
-            <div class="w-full max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 hero-surface">
                 <div class="flex flex-col items-center text-center reveal">
                     <h1 class="hero-title mb-10 sm:mb-12">
                         <!-- スマホ表示（3行） -->
@@ -1371,8 +1441,8 @@
     </section>
 
     <!-- 5つの魅力 -->
-    <section id="features" class="relative py-12 sm:py-16 lg:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" class="relative py-12 sm:py-16 lg:py-20 section-shell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     AuraWebが選ばれる<br class="sm:hidden"><span class="gradient-text">5つの魅力</span>
@@ -1495,8 +1565,8 @@
     </section>
 
     <!-- 6つの選べるデザイン -->
-    <section id="designs" class="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-transparent via-aura-blue/5 to-transparent">
-        <div class="max-w-7xl mx-auto">
+    <section id="designs" class="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-transparent via-aura-blue/5 to-transparent section-shell">
+        <div class="max-w-7xl mx-auto section-inner">
             <div class="text-center mb-12 sm:mb-16 px-4 sm:px-6 lg:px-8 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     選べる<span class="gradient-text">6つのデザイン</span>
@@ -1601,14 +1671,14 @@
     </section>
 
     <!-- 決済から公開までの流れ -->
-    <section id="flow" class="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="flow" class="relative py-16 sm:py-24 lg:py-32 overflow-hidden section-shell">
         <!-- Background Gradient Animation -->
         <div class="absolute inset-0 opacity-20">
             <div class="gradient-orb w-[500px] h-[500px] bg-aura-purple top-0 left-1/4" style="animation: float 12s ease-in-out infinite;"></div>
             <div class="gradient-orb w-[400px] h-[400px] bg-aura-purple-bright bottom-0 right-1/4" style="animation: float 15s ease-in-out infinite; animation-delay: 3s;"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 section-inner">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight">
                     決済から公開まで<br class="sm:hidden">
@@ -1762,8 +1832,8 @@
     </section>
 
     <!-- 料金について -->
-    <section id="pricing" class="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-transparent via-aura-purple/5 to-transparent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" class="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-transparent via-aura-purple/5 to-transparent section-shell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     <span class="gradient-text">シンプルな料金体系</span>
@@ -2001,8 +2071,8 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="relative py-16 sm:py-24 lg:py-32">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" class="relative py-16 sm:py-24 lg:py-32 section-shell">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 section-inner">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     よくある<span class="gradient-text">ご質問</span>
@@ -2188,8 +2258,8 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="cta" class="relative py-16 sm:py-24 lg:py-32">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="cta" class="relative py-16 sm:py-24 lg:py-32 section-shell">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-inner">
             <div class="bento-card p-8 sm:p-12 lg:p-16 reveal bg-gradient-to-br from-aura-purple/20 via-aura-purple-light/20 to-aura-purple-bright/20">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight">
                     <span class="gradient-text">Start your Legacy.</span>
