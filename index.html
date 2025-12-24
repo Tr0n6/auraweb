@@ -1397,135 +1397,13 @@
     box-shadow: 0 0 0 4px rgba(124,58,237,.35), 0 0 0 1px rgba(255,255,255,.12) inset;
     border-radius: 14px;
   }
-
-  /* === Ultra Premium Visual Polish === */
-  .background-overlay{
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1 !important;
-  }
-
-  .aura-grid{
-    background-image:
-      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
-      linear-gradient(180deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size: 120px 120px;
-    opacity: .14;
-    mix-blend-mode: screen;
-  }
-
-  .aura-glow{
-    background:
-      radial-gradient(900px 900px at 15% 10%, rgba(79,70,229,.24), transparent 60%),
-      radial-gradient(700px 700px at 85% 15%, rgba(124,58,237,.24), transparent 55%),
-      radial-gradient(700px 700px at 50% 90%, rgba(168,85,247,.18), transparent 55%);
-    filter: blur(6px) saturate(120%);
-  }
-
-  .aura-dots{
-    background-image: radial-gradient(rgba(255,255,255,.14) 1px, transparent 0);
-    background-size: 26px 26px;
-    opacity: .08;
-    mix-blend-mode: soft-light;
-  }
-
-  .floating-sparkles{
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,.32) 0, rgba(255,255,255,0) 26%),
-      radial-gradient(circle at 80% 30%, rgba(168,85,247,.32) 0, rgba(168,85,247,0) 24%),
-      radial-gradient(circle at 60% 80%, rgba(99,102,241,.24) 0, rgba(99,102,241,0) 24%);
-    animation: sparkleFloat 14s ease-in-out infinite;
-    opacity: .12;
-    pointer-events: none;
-    z-index: 1.5 !important;
-    mix-blend-mode: screen;
-  }
-
-  @keyframes sparkleFloat{
-    0% { transform: translate3d(0,0,0) scale(1); }
-    50% { transform: translate3d(0,-12px,0) scale(1.02); }
-    100% { transform: translate3d(0,0,0) scale(1); }
-  }
-
-  .section-shell{
-    position: relative;
-    background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.03) 100%);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 28px;
-    padding: clamp(1rem, 3vw, 1.75rem);
-    box-shadow: 0 24px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.04);
-    overflow: hidden;
-  }
-
-  .section-shell::before{
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: 26px;
-    border: 1px solid rgba(255,255,255,.12);
-    background: radial-gradient(circle at 25% 20%, rgba(124,58,237,.14), transparent 35%),
-      radial-gradient(circle at 75% 15%, rgba(99,102,241,.12), transparent 32%),
-      radial-gradient(circle at 50% 85%, rgba(168,85,247,.10), transparent 32%);
-    opacity: .55;
-    filter: blur(.4px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .section-shell > *{ position: relative; z-index: 1; }
-
-  .hero-container{ isolation: isolate; }
-
-  .design-card{
-    border-color: rgba(255,255,255,.14);
-    box-shadow: 0 22px 60px rgba(0,0,0,.48);
-  }
-
-  .design-card::after{
-    content:"";
-    position:absolute;
-    inset:1px;
-    border-radius:22px;
-    border:1px solid rgba(255,255,255,.12);
-    opacity:.4;
-    pointer-events:none;
-  }
-
-  .design-card:hover{
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 30px 90px rgba(0,0,0,.58);
-  }
-
-  .bento-card.highlighted{
-    background: linear-gradient(135deg, rgba(79,70,229,.18), rgba(124,58,237,.14));
-    border-color: rgba(168,85,247,.4);
-    box-shadow: 0 26px 86px rgba(124,58,237,.38);
-  }
-
-  header.glass-strong{
-    transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
-  }
-
-  header.glass-strong.scrolled{
-    background: rgba(7,7,14,.9) !important;
-    border-bottom-color: rgba(168,85,247,.35) !important;
-    box-shadow: 0 18px 52px rgba(0,0,0,.62);
-    backdrop-filter: blur(16px) saturate(140%);
-  }
 </style>
 
 </head>
 <body>
-
-    <div class="background-overlay aura-glow"></div>
-    <div class="background-overlay aura-grid"></div>
-    <div class="background-overlay aura-dots"></div>
-    <div class="floating-sparkles"></div>
-
+    
     <!-- Header -->
-    <header id="topNav" class="glass-strong fixed top-0 left-0 right-0 z-50">
+    <header class="glass-strong fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
                 <a href="#" class="flex items-center gap-2 hover:opacity-80 transition-opacity" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
@@ -1637,7 +1515,7 @@
 
     <!-- 5つの魅力 -->
     <section id="features" class="relative py-12 sm:py-16 lg:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-shell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     AuraWebが選ばれる<br class="sm:hidden"><span class="gradient-text">5つの魅力</span>
@@ -1761,7 +1639,7 @@
 
     <!-- 6つの選べるデザイン -->
     <section id="designs" class="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-transparent via-aura-blue/5 to-transparent">
-        <div class="max-w-7xl mx-auto section-shell">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12 sm:mb-16 px-4 sm:px-6 lg:px-8 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     選べる<span class="gradient-text">6つのデザイン</span>
@@ -1873,7 +1751,7 @@
             <div class="gradient-orb w-[400px] h-[400px] bg-aura-purple-bright bottom-0 right-1/4" style="animation: float 15s ease-in-out infinite; animation-delay: 3s;"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 section-shell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight">
                     決済から公開まで<br class="sm:hidden">
@@ -2028,7 +1906,7 @@
 
     <!-- 料金について -->
     <section id="pricing" class="relative py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-transparent via-aura-purple/5 to-transparent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-shell">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20 reveal">
                 <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6">
                     <span class="gradient-text">シンプルな料金体系</span>
@@ -2040,7 +1918,7 @@
 
             <!-- Base Plan -->
             <div class="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 reveal">
-                <div class="bento-card highlighted p-6 sm:p-8 lg:p-12">
+                <div class="bento-card p-6 sm:p-8 lg:p-12">
                     <div class="text-center mb-6 sm:mb-8">
                         <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5">ベースプラン</h3>
                         
@@ -3082,20 +2960,6 @@
 
             ctaObserver.observe(ctaSection);
         }
-
-        // Header glow on scroll
-        const topNav = document.getElementById('topNav');
-        const handleScroll = () => {
-            if (!topNav) return;
-            if (window.scrollY > 24) {
-                topNav.classList.add('scrolled');
-            } else {
-                topNav.classList.remove('scrolled');
-            }
-        };
-
-        handleScroll();
-        window.addEventListener('scroll', handleScroll, { passive: true });
     </script>
 </body>
 </html>
